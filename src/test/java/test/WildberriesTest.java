@@ -14,10 +14,12 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Wildberries")
 public class WildberriesTest extends AbstractTest {
 
+    private final String url  = "https://www.wildberries.ru";
+
     @DisplayName("Проверка добавления и удаление товара")
     @Test
     public void wilberiesTest() {
-        ElementUtils.goToUrl("https://www.wildberries.ru");
+        ElementUtils.goToUrl(url);
         var wildberriesSteps = new WildberriesSteps();
         wildberriesSteps.search("Навальный кружка");
         wildberriesSteps.clickButtonSearch();

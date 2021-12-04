@@ -1,10 +1,8 @@
 package utils;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
 import java.time.Duration;
@@ -31,7 +29,6 @@ public class ElementUtils extends AbstractTest {
 
     public static void sendKeys(String xpath, String text) {
         try {
-//            getDriver().findElement(By.xpath(xpath)).sendKeys(text);
             new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).sendKeys(text);
         } catch (Exception e){

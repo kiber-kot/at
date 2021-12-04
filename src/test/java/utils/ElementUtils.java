@@ -5,6 +5,7 @@ import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.fail;
 
 import java.time.Duration;
 
@@ -21,7 +22,7 @@ public class ElementUtils extends AbstractTest {
             return new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).getText();
         } catch (Exception e){
-            assertFalse("ОШИБКА: xpath -> " + xpath +  "не найден", true);
+            fail("ОШИБКА: xpath -> " + xpath +  "не найден");
             getDriver().quit();
             return null;
         }
@@ -34,7 +35,7 @@ public class ElementUtils extends AbstractTest {
             new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).sendKeys(text);
         } catch (Exception e){
-            assertFalse("ОШИБКА: xpath -> " + xpath + "\n" + " Значение : " + text + "\n" + "не найден", true);
+            fail("ОШИБКА: xpath -> " + xpath + "\n" + " Значение : " + text + "\n" + "не найден");
             getDriver().quit();
         }
     }
@@ -44,7 +45,7 @@ public class ElementUtils extends AbstractTest {
             new WebDriverWait(getDriver(), Duration.ofSeconds(10))
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).click();
         } catch (Exception e) {
-            assertFalse("ОШИБКА: xpath -> " + xpath + "\n" + "не найден", true);
+            fail("ОШИБКА: xpath -> " + xpath + "\n" + "не найден");
             getDriver().quit();
         }
     }
